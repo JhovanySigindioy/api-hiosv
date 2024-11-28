@@ -8,6 +8,26 @@ const keyApiDB: string = process.env.DATA_BASE_API_KEY || '';
 
 const dbClient: SupabaseClient = createClient(urlApiDB, keyApiDB);
 
+const testConnection = async () => {
+    try {
+        const { data, error } = await dbClient
+            .from('products') // Reemplaza 'test_table' con el nombre de una tabla de tu base de datos
+            .select('*')
+            .limit(1);
+
+        if (error) {
+            console.error("Error de conexión a la base de datos:", error.message);
+        } else {
+            console.log("Conexión exitosa a la base de datos:", data);
+        }
+    } catch (err) {
+        console.error("Error al intentar conectarse a la base de datos:", err);
+    }
+};
+
+testConnection();
+
+
 export const dbConfig = {
     dbClient,   
 };
