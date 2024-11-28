@@ -8,6 +8,10 @@ const keyApiDB: string = process.env.DATA_BASE_API_KEY || '';
 
 const dbClient: SupabaseClient = createClient(urlApiDB, keyApiDB);
 
+console.log('URL de la base de datos:', urlApiDB);  // Verifica si esta variable está cargada
+console.log('Clave de la base de datos:', keyApiDB);  // Verifica si esta clave está cargada
+
+
 const testConnection = async () => {
     try {
         const { data, error } = await dbClient
