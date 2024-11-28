@@ -3,6 +3,10 @@ import { controllerGetDataToSelectors, controllerInsertData, controllerPatchData
 
 export const router: Router = Router();
 
+router.get("/", (req, res) => {
+    res.send("Servidor express funcionando satisfatoriamente");
+});
+
 router.get("/products", controllerGetProducts);
 router.get("/brands", (req, res) => controllerGetDataToSelectors(req, res, "brands"));
 router.get("/categories", (req, res) => controllerGetDataToSelectors(req, res, "categories"));
@@ -20,4 +24,3 @@ router.delete("/categories/:id", (req, res) => controllerDeleteData(req, res, "c
 router.delete("/locations/:id", (req, res) => controllerDeleteData(req, res, "locations"));
 
 router.patch("/products/:id", controllerPatchDataDB);
-

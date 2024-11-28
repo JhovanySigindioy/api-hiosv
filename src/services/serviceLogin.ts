@@ -1,4 +1,3 @@
-import bcrypt from 'bcrypt';
 import { PostgrestError } from "@supabase/supabase-js";
 import { dbConfig } from "../database"
 
