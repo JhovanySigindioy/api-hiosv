@@ -1,0 +1,1 @@
+export type TablesDB = "products" | "categories" | "brands" | "locations";
